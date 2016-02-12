@@ -1,16 +1,18 @@
 <nav class="navbar navbar-default">
     <div class="navbar-header">
-        <ol class="breadcrumb">
-            <li class="navbar-brand">
-                {{#link-to 'index'}}Sweco League{{/link-to}}
-            </li>
-            <li class="navbar-brand">
-                {{#link-to 'league' league}}{{league.year}}{{/link-to}}
-            </li>
-            <li class="navbar-brand">
-                {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
-            </li>
-        </ol>
+        <div class="navbar-brand">
+            <ol class="breadcrumb">
+                <li>
+                    {{#link-to 'index'}}Sweco League{{/link-to}}
+                </li>
+                <li>
+                    {{#link-to 'league' league}}{{league.year}}{{/link-to}}
+                </li>
+                <li>
+                    {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
+                </li>
+            </ol>
+        </div>
     </div>
 </nav>
 
