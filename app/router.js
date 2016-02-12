@@ -18,6 +18,7 @@ Router.map(function() {
       this.route('addTeam');
     });
   });
+  this.route('add-league');
 });
 
 export default Router;

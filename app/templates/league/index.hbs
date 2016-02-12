@@ -1,7 +1,20 @@
-<ul>
-{{#each model as |group|}}
-<li>{{#link-to 'league.group' group}}{{group.name}}{{/link-to}}</li>
+<nav class="navbar navbar-default">
+	<div class="navbar-header">
+		<ol class="breadcrumb">
+	  		<li class="navbar-brand">
+				{{#link-to 'index'}}Sweco League{{/link-to}}
+			</li>
+	  		<li class="navbar-brand">
+				{{#link-to 'league' league}}{{league.year}}{{/link-to}}
+			</li>
+		</ol>
+	</div>
+</nav>
+
+<div class="list-group">
+{{#each groups as |group|}}
+<a class="list-group-item">{{#link-to 'league.group' group}}{{group.name}}{{/link-to}}</a>
 {{/each}}
-</ul>
+</div>
 
 {{outlet}}
