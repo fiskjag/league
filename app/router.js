@@ -15,7 +15,8 @@ Router.map(function() {
       this.route('team', {
         path: '/:team_id'
       });
-      this.route('addTeam');
+      this.route('add-team');
+      this.route('generate-matches');
     });
   });
   this.route('add-league');

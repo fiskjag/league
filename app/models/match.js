@@ -1,9 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-	date: DS.attr('date'),
-	hometeam: DS.attr('string'),
-  	awayteam: DS.attr('string'),
-  	homegoals: DS.attr('number'),
-  	awaygoals: DS.attr('number')
+	date: DS.attr('date', { defaultValue: new Date()} ),
+	hometeam: DS.attr('team'),
+  	awayteam: DS.attr('team'),
+  	homegoals: DS.attr('number', { defaultValue: 0 }),
+  	awaygoals: DS.attr('number', { defaultValue: 0 })
 });

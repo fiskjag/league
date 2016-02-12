@@ -5,7 +5,8 @@ export default Ember.Route.extend({
 		return Ember.RSVP.hash({
       		league: this.modelFor('league'),
       		group: this.modelFor('league.group'),
-      		teams: this.modelFor('league.group').get('teams')
+      		teams: this.modelFor('league.group').get('teams'),
+      		matches: this.modelFor('league.group').get('matches')
     	});
 	},
 
@@ -14,5 +15,6 @@ export default Ember.Route.extend({
 	    Ember.set(controller, 'league', model.league);
 	    Ember.set(controller, 'group', model.group);
 	    Ember.set(controller, 'teams', model.teams);
+	    Ember.set(controller, 'matches', model.matches);
   	}
 });
