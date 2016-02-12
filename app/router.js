@@ -6,6 +6,18 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('league', {
+    path: '/:league_id'
+  }, function() {
+    this.route('group', {
+      path: '/:group_id'
+    }, function() {
+      this.route('team', {
+        path: '/:team_id'
+      });
+      this.route('addTeam');
+    });
+  });
 });
 
 export default Router;

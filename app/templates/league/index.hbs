@@ -1,0 +1,7 @@
+<ul>
+{{#each model as |group|}}
+<li>{{#link-to 'league.group' group}}{{group.name}}{{/link-to}}</li>
+{{/each}}
+</ul>
+
+{{outlet}}
