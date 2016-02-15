@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 	sortedMatches: Ember.computed.sort('model.matches', 'matchSortProps'),
 
 	actions: {
-	    update(updatedMatch) {
+	    updateDate(updatedMatch) {
 	      	var group = this.model.group;
 	      
 		    this.store.findRecord('match', updatedMatch.id).then(function(match) {
@@ -17,6 +17,38 @@ export default Ember.Controller.extend({
 			    	group.save();
 			    });
 		    });
+	    }, 
+	    updateHomeGoals(updatedMatch) {
+	      	var group = this.model.group;
+
+		    this.store.findRecord('match', updatedMatch.id).then(function(match) {
+			    if(updatedMatch.value === '') {
+		      		match.set('homegoals', null);
+		      	} else {
+		      		match.set('homegoals', parseInt(updatedMatch.value));
+		      	}
+			    
+			    match.save().then(function () {
+			    	group.save();
+			    });
+		    });
+	    },
+	    updateAwayGoals(updatedMatch) {
+	      	var group = this.model.group;
+
+		    this.store.findRecord('match', updatedMatch.id).then(function(match) {
+			    if(updatedMatch.value === '') {
+		      		match.set('awaygoals', null);
+		      	} else {
+		      		match.set('awaygoals', parseInt(updatedMatch.value));
+		      	}
+
+			    match.save().then(function () {
+			    	group.save();
+			    });
+		    });
 	    }
+
+
   	}
 });

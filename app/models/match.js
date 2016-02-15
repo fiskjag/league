@@ -7,6 +7,6 @@ export default DS.Model.extend({
   }),
 	hometeam: DS.attr('string'),
   	awayteam: DS.attr('string'),
-  	homegoals: DS.attr('number', { defaultValue: 0 }),
-  	awaygoals: DS.attr('number', { defaultValue: 0 })
+  	homegoals: DS.attr('number', { defaultValue: null }),
+  	awaygoals: DS.attr('number', { defaultValue: null })
 });
