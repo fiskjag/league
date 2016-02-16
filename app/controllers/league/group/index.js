@@ -20,6 +20,7 @@ export default Ember.Controller.extend({
 	    }, 
 	    updateHomeGoals(updatedMatch) {
 	      	var group = this.model.group;
+	      	var scope = this;
 
 		    this.store.findRecord('match', updatedMatch.id).then(function(match) {
 			    if(updatedMatch.value === '') {
@@ -29,12 +30,15 @@ export default Ember.Controller.extend({
 		      	}
 			    
 			    match.save().then(function () {
-			    	group.save();
+			    	group.save().then(function() {
+			    		scope.send('updateResults');
+			    	});
 			    });
 		    });
 	    },
 	    updateAwayGoals(updatedMatch) {
 	      	var group = this.model.group;
+	      	var scope = this;
 
 		    this.store.findRecord('match', updatedMatch.id).then(function(match) {
 			    if(updatedMatch.value === '') {
@@ -44,7 +48,9 @@ export default Ember.Controller.extend({
 		      	}
 
 			    match.save().then(function () {
-			    	group.save();
+			    	group.save().then(function() {
+			    		scope.send('updateResults');
+			    	});
 			    });
 		    });
 	    },
@@ -53,7 +59,19 @@ export default Ember.Controller.extend({
         	var teams = group.get('teams');
 	        var matches = group.get('matches');
 
-	        for(var j = 0; j < matches.length; j++) {
+	        // reset results
+	        for(var i = 0; i < teams.get('length'); i++) {
+	            teams.objectAt(i).set('gamesplayed', 0);
+	            teams.objectAt(i).set('wins', 0);
+	            teams.objectAt(i).set('ties', 0);
+	            teams.objectAt(i).set('losses', 0);
+	            teams.objectAt(i).set('goalsscored', 0);
+	            teams.objectAt(i).set('goalsagainst', 0);
+	            teams.objectAt(i).set('points', 0);
+	        }
+
+	        // recalculate results
+	        for(var j = 0; j < matches.get('length'); j++) {
 	        	var hometeam = teams.findBy('name', matches.objectAt(j).get('hometeam'));
 	        	var awayteam = teams.findBy('name', matches.objectAt(j).get('awayteam'));
 
