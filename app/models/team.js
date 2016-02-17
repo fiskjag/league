@@ -9,8 +9,11 @@ export default DS.Model.extend({
   goalsscored: DS.attr('number', { defaultValue: 0 }),
   goalsagainst: DS.attr('number', { defaultValue: 0 }),
   goaldiff: Ember.computed('goalsscored', 'goalsagainst', function() {
-    return this.get('goalsscored') - this.get('goalsagainst');
+      return this.get('goalsscored') - this.get('goalsagainst');
   }),
-  points: DS.attr('number', { defaultValue: 0 })//,
+  points: Ember.computed('wins', 'ties', function() {
+      return this.get('wins') * 3 + this.get('ties');
+  })
+  //DS.attr('number', { defaultValue: 0 })//,
   //players: DS.hasMany('player')
 });

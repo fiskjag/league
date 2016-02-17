@@ -67,7 +67,7 @@ export default Ember.Controller.extend({
 	            teams.objectAt(i).set('losses', 0);
 	            teams.objectAt(i).set('goalsscored', 0);
 	            teams.objectAt(i).set('goalsagainst', 0);
-	            teams.objectAt(i).set('points', 0);
+	            //teams.objectAt(i).set('points', 0);
 	        }
 
 	        // recalculate results
@@ -92,7 +92,7 @@ export default Ember.Controller.extend({
 	                hometeam.incrementProperty('losses', (awayteamwin ? 1 : 0));
 	                hometeam.incrementProperty('goalsscored', hometeamgoalsscored);
 	                hometeam.incrementProperty('goalsagainst', hometeamgoalsagainst);
-	                hometeam.incrementProperty('points', (hometeamwin ? 3 : (draw ? 1 : 0)));
+	                //hometeam.incrementProperty('points', (hometeamwin ? 3 : (draw ? 1 : 0)));
 
 	                awayteam.incrementProperty('gamesplayed');
 	                awayteam.incrementProperty('wins', (awayteamwin ? 1 : 0));
@@ -100,7 +100,7 @@ export default Ember.Controller.extend({
 	                awayteam.incrementProperty('losses', (hometeamwin ? 1 : 0));
 	                awayteam.incrementProperty('goalsscored', awayteamgoalsscored);
 	                awayteam.incrementProperty('goalsagainst', awayteamgoalsagainst);
-	                awayteam.incrementProperty('points', (awayteamwin ? 3 : (draw ? 1 : 0)));
+	                //awayteam.incrementProperty('points', (awayteamwin ? 3 : (draw ? 1 : 0)));
 
 	                hometeam.save().then(function() {
 	                	awayteam.save().then(function() {

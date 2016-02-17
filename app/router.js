@@ -18,6 +18,7 @@ Router.map(function() {
       this.route('add-team');
       this.route('generate-matches');
     });
+    this.route('add-group');
   });
   this.route('add-league');
 });
