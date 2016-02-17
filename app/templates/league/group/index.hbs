@@ -28,7 +28,7 @@
         <tbody>
     		{{#each sortedTeams as |team|}}
             <tr>
-            	<td>{{team.name}}</td>
+            	<td>{{#link-to 'league.group.team' team}}{{team.name}}{{/link-to}}</td>
                 <td>{{team.gamesplayed}}</td> 
                 <td>{{team.wins}}</td>
                 <td>{{team.ties}}</td>

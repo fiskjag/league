@@ -13,7 +13,6 @@ export default DS.Model.extend({
   }),
   points: Ember.computed('wins', 'ties', function() {
       return this.get('wins') * 3 + this.get('ties');
-  })
-  //DS.attr('number', { defaultValue: 0 })//,
-  //players: DS.hasMany('player')
+  }),
+  players: DS.hasMany('player', { async: true })
 });

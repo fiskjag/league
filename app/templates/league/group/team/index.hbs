@@ -1,0 +1,35 @@
+<ol class="breadcrumb">
+    <li>
+        {{#link-to 'index'}}Sweco League{{/link-to}}
+    </li>
+    <li>
+        {{#link-to 'league' league}}{{league.year}}{{/link-to}}
+    </li>
+    <li>
+        {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
+    </li>
+    <li>
+        {{#link-to 'league.group.team' team}}{{team.name}}{{/link-to}}
+    </li>
+</ol>
+
+<div>
+	<table class="table">
+		<thead>
+            <tr>
+                <th>Förnamn</th> 
+                <th>Efternamn</th>
+                <th>Gjorda mål</th>
+            </tr>
+        </thead>
+        <tbody>
+    		{{#each team.players as |player|}}
+            <tr>
+            	<td>{{player.firstname}}</td>
+                <td>{{player.surname}}</td> 
+                <td>{{player.goalsscored}}</td>
+    		</tr>
+    		{{/each}}
+		</tbody>
+	</table>
+</div>
