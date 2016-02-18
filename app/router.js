@@ -14,7 +14,10 @@ Router.map(function() {
     }, function() {
       this.route('team', {
         path: '/:team_id'
-      }, function() {});
+      }, function() {
+        this.route('player', function() {});
+        this.route('add-player');
+      });
       this.route('add-team');
       this.route('generate-matches');
     });

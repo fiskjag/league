@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Lägg till spelare i {{team.name}}</div>
+	<div class="panel-body">
+		{{input type="text" class="form-control" placeholder="Förnamn" value=firstname }}
+		{{input type="text" class="form-control" placeholder="Efternamn" value=surname }}
+	    <span class="input-group-btn">
+	    	<button class="btn btn-default" type="button" {{action "createPlayer"}}>Lägg till spelare</button>
+	    </span>
+	</div>
+</div>

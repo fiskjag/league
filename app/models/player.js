@@ -6,5 +6,6 @@ export default DS.Model.extend({
   fullname: Ember.computed('firstname', 'surname', function() {
       return this.get('firstname') + ' ' + this.get('surname');
   }),
-  goalsscored: DS.attr('number')
+  goalsscored: DS.attr('number', { defaultValue: 0 }),
+  team: DS.belongsTo('team', { async: true })
 });

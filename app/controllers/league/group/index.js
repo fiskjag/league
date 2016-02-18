@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
 	matchSortProps: ['date'], 
 	sortedMatches: Ember.computed.sort('model.matches', 'matchSortProps'),
 
+	playerSortProps: ['goalsscored:desc'],
+	top10players: Ember.computed.sort('model.players', 'playerSortProps'),
+
 	actions: {
 	    updateDate(updatedMatch) {
 	      	var group = this.model.group;

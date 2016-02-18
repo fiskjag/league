@@ -10,6 +10,8 @@
     </li>
 </ol>
 
+<h2>Tabell</h2>
+
 <div>
 	<table class="table">
 		<thead>
@@ -43,6 +45,8 @@
 	</table>
 </div>
 
+<h2>Spelschema</h2>
+
 <div>
     <table class="table">
         <thead>
@@ -66,6 +70,31 @@
                 <input type="text" class="form-control" value={{match.homegoals}} id={{match.id}} onblur={{action "updateHomeGoals" value="target"}}>
                 <td>-</td>
                 <input type="text" class="form-control" value={{match.awaygoals}} id={{match.id}} onblur={{action "updateAwayGoals" value="target"}}>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<h2>Skytteliga</h2>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Förnamn</th> 
+                <th>Efternamn</th>
+                <th>Lag</th>
+                <th>Gjorda mål</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each top10players as |player|}}
+            <tr>
+                <td>{{player.firstname}}</td>
+                <td>{{player.surname}}</td>
+                <td>{{player.team.name}}</td>
+                <td>{{player.goalsscored}}</td>             
             </tr>
             {{/each}}
         </tbody>
