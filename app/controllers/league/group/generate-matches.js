@@ -3,12 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	actions: {
 		generateMatches: function() {
-			if(this.model.group.get('matches').length > 0) {
+			if(this.model.group.get('matches').get('length') > 0) {
 				console.log('Finns redan genererade matcher, ta bort dem och kör om');
 				return;
 			}
-
-			console.log('Genererar matcher');
 
 			var teams = this.model.teams;
 			var group = this.model.group;
@@ -35,16 +33,6 @@ export default Ember.Controller.extend({
 
 			group.set('matches', newMatches);
 			group.save();
-
-
-
-	 	// 	this.store.findRecord('group', this.model.record.id).then(function(group) {
-			// 	group.get('teams').addObject(newTeam);
-
-		 // 		newTeam.save().then(function () {
-			// 		group.save();
-			// 	});
-	 	// 	});
 			
 			this.transitionToRoute('league.group');
 		}
