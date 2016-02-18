@@ -20,14 +20,23 @@
                 <th>Förnamn</th> 
                 <th>Efternamn</th>
                 <th>Gjorda mål</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
     		{{#each team.players as |player|}}
             <tr>
             	<td>{{player.firstname}}</td>
-                <td>{{player.surname}}</td> 
+                <td>{{player.surname}}</td>
                 <td>{{player.goalsscored}}</td>
+                <td>
+                	<button type="button" {{action "decrementGoals" player}} class="btn btn-default btn-xs">
+                		<span class="glyphicon glyphicon-minus"></span>
+                	</button>
+                	<button type="button" {{action "incrementGoals" player}} class="btn btn-default btn-xs">
+                		<span class="glyphicon glyphicon-plus"></span>
+					</button>
+               	</td>                
     		</tr>
     		{{/each}}
 		</tbody>
