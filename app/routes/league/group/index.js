@@ -2,12 +2,19 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model() {
+		var scope = this;
+
+		var playersPromise = this.store.findAll('player').then(function(player) {
+			var group = scope.modelFor('league.group');
+			return player.filterBy('team.group.id', group.get('id'));
+		});
+
 		return Ember.RSVP.hash({
       		league: this.modelFor('league'),
       		group: this.modelFor('league.group'),
       		teams: this.modelFor('league.group').get('teams'),
       		matches: this.modelFor('league.group').get('matches'),
-      		players: this.store.findAll('player'),
+      		players: playersPromise
     	});
 	},
 

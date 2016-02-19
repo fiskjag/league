@@ -7,6 +7,8 @@ export default Ember.Controller.extend({
 				year: this.get('year')
 			});
 			newLeague.save();
+
+			this.transitionToRoute('');
 		}
 	}
 });
