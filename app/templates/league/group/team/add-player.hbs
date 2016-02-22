@@ -1,10 +1,55 @@
-<div class="panel panel-default">
-	<div class="panel-heading">Lägg till spelare i {{team.name}}</div>
-	<div class="panel-body">
-		{{input type="text" class="form-control" placeholder="Förnamn" value=firstname }}
-		{{input type="text" class="form-control" placeholder="Efternamn" value=surname }}
-	    <span class="input-group-btn">
-	    	<button class="btn btn-default" type="button" {{action "createPlayer"}}>Lägg till spelare</button>
-	    </span>
+<div class="container" role="main">
+	<ol class="breadcrumb">
+        <li>
+            {{#link-to 'index'}}Sweco League{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'league' league}}{{league.year}}{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'league.group.team' team}}{{team.name}}{{/link-to}}
+        </li>
+    </ol>
+    <div class="panel panel-default">
+		<div class="panel-heading">Lägg till spelare i {{team.name}}</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<div class="col-xs-5">
+					{{input type="text" class="form-control" placeholder="Förnamn" value=firstname }}
+				</div>
+				<div class="col-xs-5">
+					{{input type="text" class="form-control" placeholder="Efternamn" value=surname }}
+				</div>
+				<div class="col-xs-2">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" {{action "createPlayer"}}>Lägg till spelare</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Förnamn</th> 
+					<th>Efternamn</th>
+					<th>Gjorda mål</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each players as |player|}}
+				<tr>
+					<td>{{player.firstname}}</td>
+					<td>{{player.surname}}</td>
+					<td>{{player.goalsscored}}</td>  
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
 	</div>
 </div>

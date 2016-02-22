@@ -1,48 +1,49 @@
-<ol class="breadcrumb">
-    <li>
-        {{#link-to 'index'}}Sweco League{{/link-to}}
-    </li>
-    <li>
-        {{#link-to 'league' league}}{{league.year}}{{/link-to}}
-    </li>
-    <li>
-        {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
-    </li>
-</ol>
+<div class="container" role="main">
+    <ol class="breadcrumb">
+        <li>
+            {{#link-to 'index'}}Sweco League{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'league' league}}{{league.year}}{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
+        </li>
+    </ol>
 
-<h2>Tabell</h2>
+    <h2>Tabell</h2>
 
-<div>
-	<table class="table">
-		<thead>
+    <div>
+       <table class="table">
+          <thead>
             <tr>
-    			<th>Lag</th>
-                <th>Matcher</th> 
-                <th>Segrar</th>
-                <th>Oavgjorda</th>
-                <th>Förluster</th>
-                <th>Gjorda mål</th>
-                <th>Insläppta mål</th>
-                <th>Målskillnad</th>
-                <th>Poäng</th>
-            </tr>
-        </thead>
-        <tbody>
-    		{{#each sortedTeams as |team|}}
-            <tr>
-            	<td>{{#link-to 'league.group.team' team}}{{team.name}}{{/link-to}}</td>
-                <td>{{team.gamesplayed}}</td> 
-                <td>{{team.wins}}</td>
-                <td>{{team.ties}}</td>
-                <td>{{team.losses}}</td>
-                <td>{{team.goalsscored}}</td>
-                <td>{{team.goalsagainst}}</td>
-                <td>{{team.goaldiff}}</td>
-                <td>{{team.points}}</td>
-    		</tr>
-    		{{/each}}
-		</tbody>
-	</table>
+             <th>Lag</th>
+             <th>Matcher</th> 
+             <th>Segrar</th>
+             <th>Oavgjorda</th>
+             <th>Förluster</th>
+             <th>Gjorda mål</th>
+             <th>Insläppta mål</th>
+             <th>Målskillnad</th>
+             <th>Poäng</th>
+         </tr>
+     </thead>
+     <tbody>
+      {{#each sortedTeams as |team|}}
+      <tr>
+       <td>{{#link-to 'league.group.team' team}}{{team.name}}{{/link-to}}</td>
+       <td>{{team.gamesplayed}}</td> 
+       <td>{{team.wins}}</td>
+       <td>{{team.ties}}</td>
+       <td>{{team.losses}}</td>
+       <td>{{team.goalsscored}}</td>
+       <td>{{team.goalsagainst}}</td>
+       <td>{{team.goaldiff}}</td>
+       <td>{{team.points}}</td>
+   </tr>
+   {{/each}}
+</tbody>
+</table>
 </div>
 
 <h2>Spelschema</h2>
@@ -102,3 +103,4 @@
 </div>
 
 {{outlet}}
+</div>

@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	actions: {
 		createPlayer: function() {
+			if(this.get('firstname') === '' || this.get('surname') === '') {
+				return;
+			}
+
 	 		var newPlayer = this.store.createRecord('player', {
 	 			firstname: this.get('firstname'),
 	 			surname: this.get('surname')
@@ -15,8 +19,6 @@ export default Ember.Controller.extend({
 		 	newPlayer.save().then(function () {
 				team.save();
 			});
-			
-			this.transitionToRoute('league.group.team');
 		}
 	}
 });

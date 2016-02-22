@@ -1,16 +1,18 @@
-<ol class="breadcrumb">
+<div class="container" role="main">
+	<ol class="breadcrumb">
 		<li>
-		{{#link-to 'index'}}Sweco League{{/link-to}}
-	</li>
+			{{#link-to 'index'}}Sweco League{{/link-to}}
+		</li>
 		<li>
-		{{#link-to 'league' league}}{{league.year}}{{/link-to}}
-	</li>
-</ol>
+			{{#link-to 'league' league}}{{league.year}}{{/link-to}}
+		</li>
+	</ol>
 
-<div class="list-group">
-{{#each groups as |group|}}
-<a class="list-group-item">{{#link-to 'league.group' group}}{{group.name}}{{/link-to}}</a>
-{{/each}}
+	<div class="list-group">
+		{{#each groups as |group|}}
+		<a class="list-group-item">{{#link-to 'league.group' group}}{{group.name}}{{/link-to}}</a>
+		{{/each}}
+	</div>
+
+	{{outlet}}
 </div>
-
-{{outlet}}

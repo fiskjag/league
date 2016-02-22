@@ -1,12 +1,13 @@
-<ol class="breadcrumb">
+<div class="container" role="main">
+	<ol class="breadcrumb">
 		<li>
-		{{#link-to 'index'}}Sweco League{{/link-to}}
-	</li>
-</ol>
-
-<div class="list-group">
-{{#each model as |league|}}
-<a class="list-group-item">{{#link-to 'league' league}}{{league.year}}{{/link-to}}</a>
-{{/each}}
+			{{#link-to 'index'}}Sweco League{{/link-to}}
+		</li>
+	</ol>
+	<div class="list-group">
+		{{#each model as |league|}}
+		<a class="list-group-item">{{#link-to 'league' league}}{{league.year}}{{/link-to}}</a>
+		{{/each}}
+	</div>
+	{{outlet}}
 </div>
-{{outlet}}
