@@ -1,23 +1,23 @@
 <div class="container" role="main">
 	<ol class="breadcrumb">
-    <li>
-        {{#link-to 'index'}}Sweco League{{/link-to}}
-    </li>
-    <li>
-        {{#link-to 'league' league}}{{league.year}}{{/link-to}}
-    </li>
-    <li>
-        {{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
-    </li>
-</ol>
-<div class="panel panel-default">
+		<li>
+			{{#link-to 'index'}}Sweco League{{/link-to}}
+		</li>
+		<li>
+			{{#link-to 'league' league}}{{league.year}}{{/link-to}}
+		</li>
+		<li>
+			{{#link-to 'league.group' group}}{{group.name}}{{/link-to}}
+		</li>
+	</ol>
+	<div class="panel panel-default">
 		<div class="panel-heading">Lägg till lag i {{group.name}}</div>
 		<div class="panel-body">
 			<div class="input-group">
 				{{input type="text" class="form-control" placeholder="Lagnamn" value=name }}
-			    <span class="input-group-btn">
-			    	<button class="btn btn-default" type="button" {{action "createTeam"}}>Skapa</button>
-			    </span>
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" {{action "createTeam"}}>Skapa</button>
+				</span>
 			</div>
 		</div>
 	</div>
