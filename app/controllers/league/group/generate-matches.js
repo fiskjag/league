@@ -22,8 +22,8 @@ export default Ember.Controller.extend({
 					if(home !== away) {
 						var newMatch = this.store.createRecord('match');
 	 		
-						newMatch.set('hometeam', home.get('name'));
-						newMatch.set('awayteam', away.get('name'));
+						newMatch.set('hometeam', home);
+						newMatch.set('awayteam', away);
 						newMatch.save();
 
 						newMatches.push(newMatch);

@@ -74,8 +74,8 @@ export default Ember.Controller.extend({
 
 	        // recalculate results
 	        for(var j = 0; j < matches.get('length'); j++) {
-	        	var hometeam = teams.findBy('name', matches.objectAt(j).get('hometeam'));
-	        	var awayteam = teams.findBy('name', matches.objectAt(j).get('awayteam'));
+	        	var hometeam = teams.findBy('name', matches.objectAt(j).get('hometeam').get('name'));
+	        	var awayteam = teams.findBy('name', matches.objectAt(j).get('awayteam').get('name'));
 
 	            var hometeamwin = (matches.objectAt(j).get('homegoals') > matches.objectAt(j).get('awaygoals') ? true : false);
 	            var draw = (matches.objectAt(j).get('homegoals') === matches.objectAt(j).get('awaygoals') ? true : false);

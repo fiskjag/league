@@ -65,9 +65,9 @@
             {{#each sortedMatches as |match|}}
             <tr>
                 <input type="text" class="form-control" value={{match.dateInfo}} id={{match.id}} onblur={{action "updateDate" value="target"}}>               
-                <td>{{match.hometeam}}</td>
+                <td>{{match.hometeam.name}}</td>
                 <td>-</td>
-                <td>{{match.awayteam}}</td>
+                <td>{{match.awayteam.name}}</td>
                 <input type="text" class="form-control" value={{match.homegoals}} id={{match.id}} onblur={{action "updateHomeGoals" value="target"}}>
                 <td>-</td>
                 <input type="text" class="form-control" value={{match.awaygoals}} id={{match.id}} onblur={{action "updateAwayGoals" value="target"}}>
