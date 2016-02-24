@@ -21,4 +21,21 @@
 			</div>
 		</div>
 	</div>
+
+	<div>
+		<table class="table">
+			<thead>
+	            <tr>
+	                <th>Lag</th> 
+	            </tr>
+	        </thead>
+		        <tbody>
+				{{#each teams as |team|}}
+				<tr>
+					<td>{{#link-to 'league.group.team' team}}{{team.name}}{{/link-to}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
 </div>

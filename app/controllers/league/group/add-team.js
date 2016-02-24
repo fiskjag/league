@@ -14,8 +14,6 @@ export default Ember.Controller.extend({
 		 	newTeam.save().then(function () {
 				group.save();
 			});
-			
-			this.transitionToRoute('league.group');
 		}
 	}
 });

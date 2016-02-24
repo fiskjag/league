@@ -14,7 +14,7 @@
     <h2>Tabell</h2>
 
     <div>
-     <table class="table">
+     <table class="table table-striped">
       <thead>
         <tr>
            <th>Lag</th>
@@ -64,13 +64,13 @@
         <tbody>
             {{#each sortedMatches as |match|}}
             <tr>
-                <input type="text" class="form-control" value={{match.dateInfo}} id={{match.id}} onblur={{action "updateDate" value="target"}}>               
+                <td><input type="text" class="form-control input-sm" value={{match.dateInfo}} id={{match.id}} onblur={{action "updateDate" value="target"}}></td>            
                 <td>{{match.hometeam.name}}</td>
                 <td>-</td>
                 <td>{{match.awayteam.name}}</td>
-                <input type="text" class="form-control" value={{match.homegoals}} id={{match.id}} onblur={{action "updateHomeGoals" value="target"}}>
+                <td><input type="text" class="form-control input-sm" value={{match.homegoals}} id={{match.id}} onblur={{action "updateHomeGoals" value="target"}}></td>
                 <td>-</td>
-                <input type="text" class="form-control" value={{match.awaygoals}} id={{match.id}} onblur={{action "updateAwayGoals" value="target"}}>
+                <td><input type="text" class="form-control input-sm" value={{match.awaygoals}} id={{match.id}} onblur={{action "updateAwayGoals" value="target"}}></td>
             </tr>
             {{/each}}
         </tbody>
@@ -80,7 +80,7 @@
 <h2>Skytteliga</h2>
 
 <div>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Förnamn</th> 
