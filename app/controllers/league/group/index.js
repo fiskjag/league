@@ -8,7 +8,10 @@ export default Ember.Controller.extend({
 	sortedMatches: Ember.computed.sort('model.matches', 'matchSortProps'),
 
 	playerSortProps: ['goalsscored:desc'],
-	top10players: Ember.computed.sort('model.players', 'playerSortProps'),
+	sortedPlayers: Ember.computed.sort('model.players', 'playerSortProps'), 
+	top10players: Ember.computed.filter('sortedPlayers', function(player, index) {
+        return (index < 10);
+    }),
 
 	actions: {
 	    updateDate(updatedMatch) {
@@ -70,6 +73,7 @@ export default Ember.Controller.extend({
 	            teams.objectAt(i).set('losses', 0);
 	            teams.objectAt(i).set('goalsscored', 0);
 	            teams.objectAt(i).set('goalsagainst', 0);
+	            teams.objectAt(i).save();
 	        }
 
 	        // recalculate results
@@ -102,11 +106,10 @@ export default Ember.Controller.extend({
 	                awayteam.incrementProperty('goalsscored', awayteamgoalsscored);
 	                awayteam.incrementProperty('goalsagainst', awayteamgoalsagainst);
 
-	                hometeam.save().then(function() {
-	                	awayteam.save().then(function() {
-	                		group.save();
-	                	});
-	                });
+	                hometeam.save();
+                	awayteam.save().then(function() {
+                		group.save();
+                	});
 	            }
 	        }
 	    }
