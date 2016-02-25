@@ -1,0 +1,7 @@
+table.resultstable tr:nth-child(n+5) {
+	background-color: #EFEFEF;
+}
+
+table.resultstable tr:nth-child(-1n+4) {
+	font-weight: bold;
+}
